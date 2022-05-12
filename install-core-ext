@@ -1,0 +1,2 @@
+#!/usr/bin/env php
+<?php define("x",1);function b($e){return"docker-php-ext-install ".join(' ',$e)." && docker-php-source delete";}require"/usr/local/bin/x";

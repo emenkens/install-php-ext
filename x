@@ -1,0 +1,2 @@
+#!/usr/bin/env php
+<?php if(!defined("x")){die("Please use php install-core-ext <extension-name> OR php install-pecl-ext <extension-name>".PHP_EOL);}function p($o){return$o?preg_split("/[\s,]+/",$o["deps"]):[];}if(count($argv)<2){die("No extension specified, please try php install-core-ext <extension-name>".PHP_EOL);}$d=p(getopt("", ["deps::"]));$e=array_slice($argv,1+(bool)count($d));$b=b($e);$c=count($d)?"apk add --no-cache -t _ ".join(" ",$d)." && {$b} && apk del _":$b;echo$c.PHP_EOL;passthru($c);

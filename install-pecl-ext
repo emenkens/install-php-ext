@@ -1,0 +1,2 @@
+#!/usr/bin/env php
+<?php define("x",1);function b($e){$o=[];foreach($e as$x){$o[]="mkdir -p /tmp/{$x} && curl -fsSL 'https://pecl.php.net/get/{$x}/stable' -o /tmp/{$x}.tar.gz && tar -xf /tmp/{$x}.tar.gz -C /tmp/{$x} --strip-components=1 && docker-php-ext-configure /tmp/{$x} ".($x!="imagick"?"--enable-{$x}":"")." && docker-php-ext-install /tmp/{$x} && docker-php-source delete && rm -r /tmp/{$x}";}return join(' && ',$o);}require"/usr/local/bin/x";
